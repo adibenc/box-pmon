@@ -1,0 +1,24 @@
+version: "3.9"  # Specify the Docker Compose version
+
+services:
+  postgres-exporter:
+    image: quay.io/prometheuscommunity/postgres-exporter:latest
+    restart: unless-stopped
+    network_mode: "host"
+    ports:
+    - 9187:9187
+    environment:
+      - DATA_SOURCE_URI=${DATA_SOURCE_URI}
+      - DATA_SOURCE_USER=${DATA_SOURCE_USER}
+      - DATA_SOURCE_PASS=${DATA_SOURCE_PASS}
+    volumes:
+      - ./postgres_exporter.yml:/etc/prometheus_exporter/postgres_exporter.yml
+
+# Optional volumes section for persisting data (if needed)
+# volumes:
+#   - postgres-exporter-data:/data
+
+# Optional networks section for custom network configuration
+# networks:
+#   my-network:
+#     external: true

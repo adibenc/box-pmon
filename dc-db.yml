@@ -1,0 +1,12 @@
+# for db mon
+services:
+  prometheus-db:
+    image: prom/prometheus
+    container_name: prometheus-db
+    restart: always
+    ports:
+      - 9091:9090
+    volumes:
+      - ./etc/prometheus/db-docker-prometheus.yml:/etc/prometheus/prometheus.yml
+    extra_hosts:
+      - host.docker.internal:host-gateway

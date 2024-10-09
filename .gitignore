@@ -1,0 +1,15 @@
+[Dd]ummy*
+[Ss]ecret*
+dmy*
+tmp*
+.env*
+*.sh
+*.csv
+
+mm.env
+tmp.sh
+
+.env
+*.log
+_[Dd]ummy*
+_[Dd]my*
